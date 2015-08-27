@@ -18,7 +18,8 @@ $(document).ready(function(){
      var dancerNames = [ 
     "makeBlinkyDancer",
     "makeJumpyDancer",
-    "makeTransformerDancer"
+    "makeTransformerDancer",
+    "makeCarDancer"
     ]
 
     var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
@@ -55,9 +56,17 @@ $(document).ready(function(){
     //$('.dancer').css("top", "100px");
     $('.dancer').each(function(index) {
       
-      $(this).css({ "top":  $("body").height()/2, "left":left});
+      $(this).animate({ "top":  $("body").height()/2, "left":left}, 1000);
       console.log(left);
-      left += parseInt($(this).css("border-left-width"));
+      var offset;
+      //if car dancer, use $(this).css("width"), else use $(this).css("border-left-width")
+      if ($(this).hasClass('car')) {
+        offset = parseInt($(this).css("width"))/ 2;
+      } else {
+        offset = $(this).css("border-left-width")
+      }
+      // var offset = $(this).css("width") || $(this).css("border-left-width")
+      left += parseInt(offset, 10);
     })
   });
 });
