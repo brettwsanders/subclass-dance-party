@@ -46,9 +46,19 @@ $(document).ready(function(){
       );
       $('body').append(dancer.$node);
     }
-
-
-    
+  });
+  
+  $(".lineUpDancersButton").on("click", function(event){
+    var left = 0;
+    var lineUp = $(this).data("line-up");
+    console.log($('.dancer'));
+    //$('.dancer').css("top", "100px");
+    $('.dancer').each(function(index) {
+      
+      $(this).css({ "top":  $("body").height()/2, "left":left});
+      console.log(left);
+      left += parseInt($(this).css("border-left-width"));
+    })
   });
 });
 
