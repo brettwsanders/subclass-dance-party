@@ -23,5 +23,11 @@ body, a:link, a:visited, a:active{
 .dancer{
   border:10px solid red;
   border-radius: 10px;
-  position:absolute;
+  position:fixed;
+}
+.transformer {
+  position:relative;
+}
+.boundary {
+
 }

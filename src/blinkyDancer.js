@@ -20,8 +20,9 @@
 
 var makeBlinkyDancer = function(top, left, timeBetweenSteps){
   this.oldStep = makeDancer.prototype.step;
+  this.validColors = ['blue', 'red', 'green', 'yellow', 'orange', 'purple', 'white', 'cyan']
+
   makeDancer.call(this, top, left, timeBetweenSteps);
-  
 
 };
 
@@ -31,4 +32,6 @@ makeBlinkyDancer.prototype.constructor = makeBlinkyDancer;
 makeBlinkyDancer.prototype.step = function() {
   this.oldStep();
   this.$node.toggle();
+  var color = this.validColors[Math.floor(Math.random() * this.validColors.length)];
+  this.$node.css( {'border': '10px solid ' + color})
 }
