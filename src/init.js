@@ -1,5 +1,6 @@
 $(document).ready(function(){
   window.dancers = [];
+  window.totalCars = [];
 
   $(".addDancerButton").on("click", function(event){
     /* This function sets up the click handlers for the create-dancer
@@ -28,7 +29,7 @@ $(document).ready(function(){
       for (var i = 0; i < 50; i++) {
         addDancer(dancerNames[Math.floor(Math.random() * dancerNames.length)]);
       }
-      debugger;
+      // debugger;
     }
     else {
       addDancer(dancerMakerFunctionName);
@@ -46,6 +47,9 @@ $(document).ready(function(){
         $("body").width() * Math.random(),
         Math.random() * 1000
       );
+      if (dancer.constructor === makeCarDancer) {
+        window.totalCars.push(dancer);
+      }
       $('body').append(dancer.$node);
       window.dancers.push(dancerMakerFunction);
     }

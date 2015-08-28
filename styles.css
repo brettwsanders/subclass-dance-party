@@ -12,6 +12,7 @@ body, a:link, a:visited, a:active{
 }
 img.car{
     width: 120px;
+    height: 120px;
 }
 .title, .addDancerButton{
   padding:5px 12px;
