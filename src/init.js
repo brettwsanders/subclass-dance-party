@@ -28,6 +28,7 @@ $(document).ready(function(){
       for (var i = 0; i < 50; i++) {
         addDancer(dancerNames[Math.floor(Math.random() * dancerNames.length)]);
       }
+      debugger;
     }
     else {
       addDancer(dancerMakerFunctionName);
@@ -46,6 +47,7 @@ $(document).ready(function(){
         Math.random() * 1000
       );
       $('body').append(dancer.$node);
+      window.dancers.push(dancerMakerFunction);
     }
   });
   
